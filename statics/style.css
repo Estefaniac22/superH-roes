@@ -1,0 +1,9 @@
+#fondo {
+    color: #333333;
+    background-color:#FFFF99; 
+    }
+    .centrar{
+        width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    }

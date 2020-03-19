@@ -6,77 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <script src="jquery-3.4.1.min.js"></script>
-    <style type="text/css">
-        body {
-        color: #333333;
-        background-color: #FFFF99; 
-        }
-        .centrar{
-            width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-        }
-        </style> 
-    <script type="text/javascript">
-      $(document).ready(() => {
-
-
-        $("#readButton").click(() => {
-          const requestURL = "data/" + $("#nameBox").val();
-          console.log("ajax request..." + requestURL);
-          $.ajax({
-            url: requestURL,
-            type: "GET",
-            dataType: "json",
-            success: data => {
-              console.log("data received" + data);
-
-
-              if(data.name && data.photo){
-                    //  $('#status').html('SUCESSS' + requestURL);
-                      $('#nameDiv').html("My name is: " + data.name);
-                      $('#herImage').attr('src', data.photo); 
-              }else{
-                  $('#status').html('ERROR');
-              }
-             
-            }
-          });
-        });
-
-        $("#allUsers").click(() => {
-          $.ajax({
-            url: "data/",
-            type: "GET",
-            dataType: "json",
-            success: data => {
-              $("#status").html('<div class="centrar">All super Heroes:' + data+'</div>');
-            }
-          });
-        });
-
-      });
-    </script>
-    <h1 class="centrar">Welcome to Super Heroes App!</h1>
+    <script type="text/javascript" src="funciones.js"> </script>
+    <link rel=stylesheet href="style.css" type="text/css" media=screen>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
-  <body>
+  <body id="fondo">   
+    <div class="row">
+        <div class="centrar">
+      
+     <h1 >¡Welcome to Super Heroes App!</h1>
+     <hr>
+    </div>
+
+    </div>
+  
       <div class="centrar">
-         
-      <h2> Heroes availables:</h2>
-      <ul>
-          <li>Hulk</li>
-          <li>Deadpool</li>
-          <li>Batman</li>
-      </ul>
-    Name: <input type="text" id="nameBox" size="20" /> <br />
-    <button id="readButton" >Get profile</button><br />
-    <button id="allUsers">Get all usernames</button>
-
-    <div id="nameDiv"></div>
-    <img id="herImage"></div>
-   
-
-    <div id="status"></div> 
+        <div class="row">
+          
+                  <h2>Take a look at Super Heroes biography from an API REST!</h2> 
+            <p>Click here to look up heroes by id number
+            <a href="redirec.html" class="btn btn-success" role="button">See heroes by id</a>  </p>
+          </div>
+       <hr>
+      <div class="row">
+        <h2> Heroes availables from a Simulation of API REST:</h2>
       </div>
+              <div class="row">
+               <ul>
+                      <li>Hulk</li>
+                      <li>Deadpool</li>
+                      <li>Batman</li>
+
+              </div>
+              </ul>
+      Name: <input type="text" id="nameBox" size="20" />
+      <br>
+      <hr>
+        <button type="button" class="btn btn-danger" id="readButton">Get profile</button>
+        
+        <button type="button" class="btn btn-danger" id="allUsers">Get all heroes names</button>
+   
+      </div>
+     
+ 
+
+    <div id="nameDiv" class="centrar"></div>
+      
+    <div class="centrar">
+<img id="herImage" >
+    </div>
+
+   
+    <div id="status" class="centrar"></div> 
+    
   </body>
 </html>
